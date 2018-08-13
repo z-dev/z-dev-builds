@@ -6,9 +6,9 @@ deployment:
   development:
     branch: master
     commands:
-      - npm run deploy:ci:dev
+      - yarn run deploy:ci:dev
   production:
     branch: production
     commands:
-      - npm run deploy:ci:prod
+      - yarn run deploy:ci:prod
 

@@ -1,6 +1,6 @@
 {
-  "name": "hello-world-dev",
-  "alias": "hello-world-dev",
+  "name": "z-dev-builds",
+  "alias": "z-dev-builds",
   "env": {
     "DATABASE_NAME": "development"
   }
