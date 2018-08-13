@@ -2,6 +2,16 @@ machine:
   node:
     version: 8.1.2
 
+dependencies:
+  override:
+    - yarn install --pure-lockfile
+  cache_directories:
+    - ~/.cache/yarn
+
+test:
+  override:
+    - yarn test
+
 deployment:
   development:
     branch: master
