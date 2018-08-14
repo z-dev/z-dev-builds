@@ -23,6 +23,7 @@ jobs:
             else if [ "${CIRCLE_BRANCH}" == "production" ]; then
               yarn run deploy:ci:prod
             fi
+          |
 workflows:
   version: 2
   z_dev_builds_workflow:
