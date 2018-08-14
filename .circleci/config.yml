@@ -1,29 +1,28 @@
 version: 2
-
 jobs:
   build-test-deploy:
     docker:
       - image: circleci/node:9-browsers
-      steps:
-        - checkout
-        - run:
-          name: Yarn Install
-          command: yarn install --pure-lockfile
-        - save_cache:
-            key: yarn-packages-{{ checksum "yarn.lock" }}
-            name: Save Yarn Package Cache
-            paths:
-              - ~/.cache/yarn
-        - run:
-          name: test
-          command: yarn test
-        - deploy:
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              yarn run deploy:ci:dev
-            else
-              yarn run deploy:ci:prod
-            fi
+    steps:
+      - checkout
+      - run:
+        name: Yarn Install
+        command: yarn install --pure-lockfile
+      - save_cache:
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          name: Save Yarn Package Cache
+          paths:
+            - ~/.cache/yarn
+      - run:
+        name: test
+        command: yarn test
+      - deploy:
+        command: |
+          if [ "${CIRCLE_BRANCH}" == "master" ]; then
+            yarn run deploy:ci:dev
+          else
+            yarn run deploy:ci:prod
+          fi
 workflows:
   version: 2
   z_dev_builds_workflow:
