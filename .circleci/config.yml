@@ -1,0 +1,30 @@
+version: 2
+jobs:
+  build-test-deploy:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - run:
+          name: Yarn Install
+          command: yarn install --pure-lockfile
+      - save_cache:
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          name: Save Yarn Package Cache
+          paths:
+            - ~/.cache/yarn
+      - run:
+          name: test
+          command: yarn test
+      - deploy:
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              yarn run deploy:ci:dev
+            elif [ "${CIRCLE_BRANCH}" == "production" ]; then
+              yarn run deploy:ci:prod
+            fi
+workflows:
+  version: 2
+  z_dev_builds_workflow:
+    jobs:
+      - build-test-deploy
