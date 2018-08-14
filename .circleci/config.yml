@@ -17,13 +17,12 @@ jobs:
           name: test
           command: yarn test
       - deploy:
-          command: |
+          command:
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               yarn run deploy:ci:dev
             else if [ "${CIRCLE_BRANCH}" == "production" ]; then
               yarn run deploy:ci:prod
             fi
-          |
 workflows:
   version: 2
   z_dev_builds_workflow:
