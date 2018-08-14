@@ -15,9 +15,9 @@
     "deploy:ci:prod": "yarn run deploy:prod -- --token=E4RjOF6qkG8lj63zfDmeW0hT",
     "postinstall": "yarn run check:node",
     "lint:watch": "nodemon --watch ./ --exec \"yarn run lint:without:prettier\"",
-    "lint": "eslint ./pages ./components ./styles",
+    "lint": "eslint ./pages ./components ./styles ./redux",
     "lint:without:prettier": "yarn run lint:js -- --rule 'prettier/prettier: 0'",
-    "format:js": "prettier --single-quote --trailing-comma all --no-semi --print-width 180 --write \"{pages,styles,components}/**/*.js\"",
+    "format:js": "prettier --single-quote --trailing-comma all --no-semi --print-width 180 --write \"{pages,styles,components,redux}/**/*.js\"",
     "precommit": "lint-staged && yarn run lint",
     "eslint-check": "eslint --print-config .eslintrc | eslint-config-prettier-check"
   },
