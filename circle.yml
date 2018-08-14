@@ -21,4 +21,3 @@ deployment:
     branch: production
     commands:
       - yarn run deploy:ci:prod
-
