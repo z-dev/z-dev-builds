@@ -1,31 +1,23 @@
 import express from 'express'
 import http from 'http'
 import next from 'next'
+import api from 'server/api'
 import socket from 'server/socket'
-import bodyParser from 'body-parser'
 
 const port = parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
-const api = express => {
-  express.use(bodyParser.json())
-
-  express.get('*', (request, response) => {
-    return handle(request, response)
-  })
-}
-
 app.prepare()
 .then(() => {
-  const expressServer = express()
+  const expressApp = express()
 
-  const server = http.Server(expressServer)
+  const server = http.Server(expressApp)
 
   socket(server)
 
-  api(expressServer)
+  api(expressApp, handle)
 
   server.listen(port, () => {
     console.log('Server listening at port %d', port)
