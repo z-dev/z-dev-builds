@@ -11,12 +11,10 @@
     "test": "yarn run lint && yarn build",
     "dev": "yarn run prebuild && neutrino start",
     "start": "NODE_ENV=production node build/server.js",
-
     "deploy:dev": "bin/buildStatic.sh && cp deployment/development.json now.json && now deploy && now alias",
     "deploy:prod": "bin/buildStatic.sh && cp deployment/production.json now.json && now deploy && now alias",
     "deploy:ci:dev": "yarn run deploy:dev -- --token=E4RjOF6qkG8lj63zfDmeW0hT",
     "deploy:ci:prod": "yarn run deploy:prod -- --token=E4RjOF6qkG8lj63zfDmeW0hT",
-
     "postinstall": "yarn run check:node",
     "lint:watch": "nodemon --watch ./ --exec \"yarn run lint:without:prettier\"",
     "lint": "eslint ./pages ./components ./styles ./redux",
