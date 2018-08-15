@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import withRedux from 'redux/reduxWrapper'
+import { connectSocket } from 'common/socket'
 import { getAllBuilds } from 'redux/actions/builds'
 import Builds from 'components/builds'
 import Page from 'components/page'
@@ -13,7 +14,8 @@ const PageContainer = styled(Div)`
 `
 
 class Index extends Component {
-  componentWillMount() {
+  componentDidMount() {
+    connectSocket()
     this.props.dispatch(getAllBuilds())
   }
 
