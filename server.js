@@ -6,10 +6,9 @@ import socket from 'server/socket'
 
 const port = parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production'
-const app = next({ dev })
-const handle = app.getRequestHandler()
+const nextApp = next({ dev })
 
-app.prepare()
+nextApp.prepare()
 .then(() => {
   const expressApp = express()
 
@@ -17,7 +16,7 @@ app.prepare()
 
   socket(server)
 
-  api(expressApp, handle)
+  api(expressApp, nextApp)
 
   server.listen(port, () => {
     console.log('Server listening at port %d', port)
