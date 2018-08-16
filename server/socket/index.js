@@ -1,14 +1,14 @@
 import socketio from 'socket.io'
 
-let buildsNamespace
+let projectsNamespace
 
 export default server => {
   const socket = socketio(server)
-  buildsNamespace = socket.of('/builds')
+  projectsNamespace = socket.of('/projects')
 
-  buildsNamespace.on('connection', () => {
+  projectsNamespace.on('connection', () => {
     console.log('Connection')
   })
 }
 
-export const socket = () => buildsNamespace
+export const socket = () => projectsNamespace
