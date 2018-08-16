@@ -3,7 +3,7 @@ import http from 'http'
 import next from 'next'
 import api from 'server/api'
 import socket from 'server/socket'
-import emitBuilds from 'server/socket/emitBuilds'
+import emitProjects from 'server/socket/emitProjects'
 
 const port = parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production'
@@ -20,7 +20,7 @@ nextApp.prepare()
     console.log('Server listening at port %d', port)
   })
 
-  emitBuilds()
+  emitProjects()
 })
 
 

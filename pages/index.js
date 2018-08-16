@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import withRedux from 'redux/reduxWrapper'
-import socket, { connectSocket } from 'common/socket'
+import { connectSocket } from 'common/socket'
 import Builds from 'components/builds'
 import Page from 'components/page'
 import Div from 'components/core/div'
 import styled from 'styled-components'
+import { projectsListener } from 'redux/actions/projects'
 import '~/styles/global'
 
 const PageContainer = styled(Div)`
@@ -15,7 +16,7 @@ const PageContainer = styled(Div)`
 class Index extends Component {
   componentDidMount() {
     connectSocket()
-    socket().on('builds', builds => console.log(JSON.parse(builds.text)))
+    this.props.dispatch(projectsListener())
   }
 
   render() {
@@ -29,4 +30,4 @@ class Index extends Component {
   }
 }
 
-export default withRedux(state => ({ builds: state.builds }))(Index)
+export default withRedux(state => ({ projects: state.projects }))(Index)
