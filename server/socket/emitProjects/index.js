@@ -1,15 +1,10 @@
-import CircleCI from 'circleci'
-import request from 'superagent'
-import { repeat } from 'common/utilities/repeat'
+import { asyncRepeat } from 'common/utilities/asyncRepeat'
 import { socket } from '../'
-
-const ci = new CircleCI({
-  auth: process.env.CIRCLE_TOKEN
-})
+import circleCI from 'common/circleCI'
 
 export default () => {
-  repeat(async () => {
-    const projects = await ci.getProjects()
+  asyncRepeat(async () => {
+    const projects = await circleCI.getProjects()
 
     socket().emit('projects', { projects: projects })
   }, 10000)
