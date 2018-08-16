@@ -7,7 +7,6 @@ export default server => {
   buildsNamespace = socket.of('/builds')
 
   buildsNamespace
-    .use(async (clientSocket, next) => next())
     .on('connection', clientSocket => {
       console.log('Connection')
     })
