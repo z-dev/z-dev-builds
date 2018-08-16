@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import withRedux from 'redux/reduxWrapper'
-import { connectSocket } from 'common/socket'
-import { getAllBuilds } from 'redux/actions/builds'
+import socket, { connectSocket } from 'common/socket'
 import Builds from 'components/builds'
 import Page from 'components/page'
 import Div from 'components/core/div'
@@ -16,7 +15,7 @@ const PageContainer = styled(Div)`
 class Index extends Component {
   componentDidMount() {
     connectSocket()
-    this.props.dispatch(getAllBuilds())
+    socket().on('builds', () => console.log('builds'))
   }
 
   render() {
