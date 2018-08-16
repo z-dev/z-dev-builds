@@ -11,8 +11,7 @@ const nextApp = next({ dev })
 const expressApp = express()
 const server = http.Server(expressApp)
 
-nextApp.prepare()
-.then(() => {
+nextApp.prepare().then(() => {
   socket(server)
   api(expressApp, nextApp)
 
@@ -22,5 +21,3 @@ nextApp.prepare()
 
   emitProjects()
 })
-
-

@@ -1,6 +1,6 @@
 import { asyncRepeat } from 'common/utilities/asyncRepeat'
-import { socket } from '../'
 import circleCI from 'common/circleCI'
+import { socket } from '../'
 
 export default () => {
   asyncRepeat(async () => {
