@@ -15,7 +15,7 @@ const PageContainer = styled(Div)`
 class Index extends Component {
   componentDidMount() {
     connectSocket()
-    socket().on('builds', () => console.log('builds'))
+    socket().on('builds', builds => console.log(JSON.parse(builds.text)))
   }
 
   render() {
