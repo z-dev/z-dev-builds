@@ -7,15 +7,12 @@ import socket from 'server/socket'
 const port = parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production'
 const nextApp = next({ dev })
+const expressApp = express()
+const server = http.Server(expressApp)
 
 nextApp.prepare()
 .then(() => {
-  const expressApp = express()
-
-  const server = http.Server(expressApp)
-
   socket(server)
-
   api(expressApp, nextApp)
 
   server.listen(port, () => {
