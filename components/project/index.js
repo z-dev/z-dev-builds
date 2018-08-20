@@ -23,13 +23,11 @@ const ProjectContainer = styled(Div)`
   margin: 5px;
 `
 
-export default props => {
-  return (
-    <ProjectContainer>
-      <p>{props.project.name}</p>
-      {_.map(props.project.branches, branch => (
-        <Branch branch={branch} />
-      ))}
-    </ProjectContainer>
-  )
-}
+export default props => (
+  <ProjectContainer>
+    <p>{props.project.name}</p>
+    {_.map(props.project.branches, (branch, index) => (
+      <Branch key={`branch-${index}`} branch={branch} />
+    ))}
+  </ProjectContainer>
+)
