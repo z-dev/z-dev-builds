@@ -17,7 +17,7 @@ export default () => {
   return (
     <HeaderContainer>
       <img src="/static/logo.svg" alt="ZDEV Logo" />
-      <HeaderTitle>Continous Integration</HeaderTitle>
+      <HeaderTitle>Continuous Integration</HeaderTitle>
     </HeaderContainer>
   )
 }
