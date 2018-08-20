@@ -10,8 +10,8 @@ const getRecentlyBuiltBranches = branches => {
   return _.chain(branches)
     .map((branch, name) => ({ ...branch, name: name }))
     .sortBy(branch => {
-      const recentBuilds = branch.recent_builds
-      return recentBuilds ? moment(recentBuilds[0].pushed_at).format(sortableTimeFormat) : 0
+      const latestBuild = _.first(branch.recent_builds)
+      return latestBuild ? moment(latestBuild.pushed_at).format(sortableTimeFormat) : 0
     })
     .reverse()
     .slice(0, 3)
@@ -31,7 +31,7 @@ const formatBranches = branches => {
 
 const sortProjects = projects => {
   return _.chain(projects)
-    .sortBy(project => moment(project.branches[0].latestBuild.time).format(sortableTimeFormat))
+    .sortBy(project => moment(_.get(project, 'branches[0].latestBuild.time')).format(sortableTimeFormat))
     .reverse()
     .value()
 }
