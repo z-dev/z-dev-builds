@@ -13,7 +13,7 @@ import '~/styles/global'
 const PageContainer = styled(Div)`
   flex-direction: column;
   font-family: ${props => props.theme.serifFontFamily};
-  height: 100vh;
+  background-color: ${props => props.theme.colors.grey};
 `
 
 class Index extends Component {

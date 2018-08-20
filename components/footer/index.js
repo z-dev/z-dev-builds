@@ -1,6 +1,6 @@
 import React from 'react'
 import Div from 'components/core/div'
-import Anchor from 'components/core/anchor'
+import Link from 'components/core/link'
 import styled from 'styled-components'
 
 const Footer = styled(Div)`
@@ -10,7 +10,7 @@ const Footer = styled(Div)`
   background-color: ${props => props.theme.colors.darkGrey};
 `
 
-const FooterLink = styled(Anchor)`
+const FooterLink = styled(Link)`
   margin-left: ${props => props.theme.spaces.small}px;
 `
 
