@@ -5,6 +5,7 @@ import circleCI from 'common/circleCI'
 import { socket } from '../'
 
 const sortableTimeFormat = 'YYYYMMDDHHmmss'
+const gitUrl = 'https://github.com/z-dev'
 
 const getRecentlyBuiltBranches = branches => {
   return _.chain(branches)
@@ -14,7 +15,7 @@ const getRecentlyBuiltBranches = branches => {
       return latestBuild ? moment(latestBuild.pushed_at).format(sortableTimeFormat) : 0
     })
     .reverse()
-    .slice(0, 3)
+    .take(3)
     .value()
 }
 
@@ -48,7 +49,7 @@ const formatProjects = projects => {
 export default () => {
   asyncRepeat(async () => {
     const projects = await circleCI.getProjects()
-    const zdevProjects = _.filter(projects, project => _.includes(project.vcs_url, 'https://github.com/z-dev'))
+    const zdevProjects = _.filter(projects, project => _.includes(project.vcs_url, gitUrl))
     const formattedProjects = formatProjects(zdevProjects)
     const sortedProjects = sortProjects(formattedProjects)
 
