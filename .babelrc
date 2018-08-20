@@ -15,6 +15,7 @@
         "extensions": ["css$", "scss$"]
       }
     ],
+    "transform-object-rest-spread",
     ["styled-components", { "ssr": true } ],
     ["transform-define", "./envConfig.js"],
     ["babel-plugin-root-import", [{
