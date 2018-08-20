@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-export const H1 = styled.h1`
+export default styled.a`
   font-family: ${props => props.theme.fontFamily};
+  font-size: ${props => props.theme.fontSizes.medium}px;
   color: ${props => props.theme.colors.white};
-  font-size: ${props => props.theme.fontSizes.large}px;
-  font-weight: 300;
+  text-decoration: underline;
 `

@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import withRedux from 'redux/reduxWrapper'
 import { connectSocket } from 'common/socket'
 import Builds from 'components/builds'
+import Header from 'components/header'
+import Footer from 'components/footer'
 import Page from 'components/page'
 import Div from 'components/core/div'
 import styled from 'styled-components'
@@ -11,6 +13,7 @@ import '~/styles/global'
 const PageContainer = styled(Div)`
   flex-direction: column;
   font-family: ${props => props.theme.serifFontFamily};
+  background-color: ${props => props.theme.colors.grey};
 `
 
 class Index extends Component {
@@ -23,7 +26,9 @@ class Index extends Component {
     return (
       <Page>
         <PageContainer>
+          <Header />
           <Builds />
+          <Footer />
         </PageContainer>
       </Page>
     )

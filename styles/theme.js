@@ -18,6 +18,26 @@ export default {
   smGridMargin: 20,
   mdGridMargin: 30,
   lgGridMargin: lgGridMargin,
-  sansFontFamily: 'Source Sans Pro, sans-serif',
-  serifFontFamily: 'Raleway, serif',
+  fontFamily: 'Avenir Next, sans-serif',
+  colors: {
+    darkGrey: '#2D2E33',
+    grey: '#32393F',
+    lightGrey: '#929CA5',
+    green: '#54C18F',
+    white: 'white',
+  },
+  spaces: {
+    small: 10,
+    extraLarge: 75,
+  },
+  header: {
+    height: 100,
+  },
+  footer: {
+    height: 50,
+  },
+  fontSizes: {
+    large: 20,
+    medium: 18,
+  },
 }
