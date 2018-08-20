@@ -4,12 +4,14 @@ import { asyncRepeat } from 'common/utilities/asyncRepeat'
 import circleCI from 'common/circleCI'
 import { socket } from '../'
 
-const getLastThreeBranches = branches => {
+const sortableTimeFormat = 'YYYYMMDDHHmmss'
+
+const getRecentlyBuiltBranches = branches => {
   return _.chain(branches)
     .map((branch, name) => ({ ...branch, name: name }))
     .sortBy(branch => {
       const recentBuilds = branch.recent_builds
-      return recentBuilds ? moment(recentBuilds[0].pushed_at).format('YYYYMMDDHHmmss') : 0
+      return recentBuilds ? moment(recentBuilds[0].pushed_at).format(sortableTimeFormat) : 0
     })
     .reverse()
     .slice(0, 3)
@@ -17,13 +19,20 @@ const getLastThreeBranches = branches => {
 }
 
 const formatBranches = branches => {
-  const lastThreeBranches = getLastThreeBranches(branches)
+  const recentlyBuiltBranches = getRecentlyBuiltBranches(branches)
 
-  return _.chain(lastThreeBranches)
+  return _.chain(recentlyBuiltBranches)
     .map(branch => {
       const latestBuild = branch.recent_builds[0]
       return { name: branch.name, latestBuild: { time: latestBuild.pushed_at, buildNumber: latestBuild.build_num, status: latestBuild.status } }
     })
+    .value()
+}
+
+const sortProjects = projects => {
+  return _.chain(projects)
+    .sortBy(project => moment(project.branches[0].latestBuild.time).format(sortableTimeFormat))
+    .reverse()
     .value()
 }
 
@@ -37,7 +46,8 @@ export default () => {
   asyncRepeat(async () => {
     const projects = await circleCI.getProjects()
     const formattedProjects = formatProjects(projects)
+    const sortedProjects = sortProjects(formattedProjects)
 
-    socket().emit('projects', { projects: formattedProjects })
+    socket().emit('projects', { projects: sortedProjects })
   }, 10000)
 }
