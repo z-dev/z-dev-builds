@@ -7,3 +7,7 @@ const updateProjects = projects => dispatch => {
 export const projectsListener = () => dispatch => {
   socket().on('projects', projects => dispatch(updateProjects(projects)))
 }
+
+export const updateProjectQuery = projectQuery => dispatch => {
+  dispatch({ type: 'projects/UPDATE_PROJECT_QUERY', payload: projectQuery })
+}

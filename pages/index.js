@@ -1,19 +1,20 @@
 import React, { Component } from 'react'
 import withRedux from 'redux/reduxWrapper'
 import { connectSocket } from 'common/socket'
-import Builds from 'components/builds'
+import Projects from 'components/projects'
 import Header from 'components/header'
 import Footer from 'components/footer'
 import Page from 'components/page'
 import Div from 'components/core/div'
+import ProjectSearch from 'components/projectSearch'
 import styled from 'styled-components'
-import { projectsListener } from 'redux/actions/projects'
+import { projectsListener, updateProjectQuery } from 'redux/actions/projects'
+import projectsSelector from 'redux/selectors/projects'
 import '~/styles/global'
 
 const PageContainer = styled(Div)`
   flex-direction: column;
   font-family: ${props => props.theme.serifFontFamily};
-  height: 100vh;
 `
 
 class Index extends Component {
@@ -27,7 +28,8 @@ class Index extends Component {
       <Page>
         <PageContainer>
           <Header />
-          <Builds />
+          <ProjectSearch updateProjectQuery={projectQuery => this.props.dispatch(updateProjectQuery(projectQuery))} />
+          <Projects projects={this.props.projects.projects} />
           <Footer />
         </PageContainer>
       </Page>
@@ -35,4 +37,4 @@ class Index extends Component {
   }
 }
 
-export default withRedux(state => ({ projects: state.projects }))(Index)
+export default withRedux(state => ({ projects: projectsSelector(state) }))(Index)
