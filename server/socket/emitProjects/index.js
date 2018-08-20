@@ -31,7 +31,10 @@ const formatBranches = branches => {
 
 const sortProjects = projects => {
   return _.chain(projects)
-    .sortBy(project => moment(_.get(project, 'branches[0].latestBuild.time')).format(sortableTimeFormat))
+    .sortBy(project => {
+      const latestBuildTime = _.get(project, 'branches[0].latestBuild.time')
+      return latestBuildTime ? moment(latestBuildTime).format(sortableTimeFormat) : 0
+    })
     .reverse()
     .value()
 }
