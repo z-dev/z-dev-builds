@@ -33,6 +33,9 @@ export default {
   header: {
     height: 100,
   },
+  footer: {
+    height: 50,
+  },
   fontSizes: {
     large: 20,
     medium: 18,
