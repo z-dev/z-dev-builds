@@ -48,7 +48,8 @@ const formatProjects = projects => {
 export default () => {
   asyncRepeat(async () => {
     const projects = await circleCI.getProjects()
-    const formattedProjects = formatProjects(projects)
+    const zdevProjects = _.filter(projects, project => _.includes(project.vcs_url, 'https://github.com/z-dev'))
+    const formattedProjects = formatProjects(zdevProjects)
     const sortedProjects = sortProjects(formattedProjects)
 
     socket().emit('projects', { projects: sortedProjects })
