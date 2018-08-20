@@ -1,5 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
+import _ from 'lodash'
 import ResponsiveContainer from 'components/core/responsiveContainer'
+import Project from 'components/project'
 import styled from 'styled-components'
 
 const Container = styled(ResponsiveContainer)`
@@ -15,8 +17,10 @@ const Container = styled(ResponsiveContainer)`
   padding-bottom: 25px;
 `
 
-export default class About extends Component {
-  render() {
-    return <Container />
-  }
-}
+export default props => (
+  <Container>
+    {_.map(props.projects, (project, index) => (
+      <Project key={`project-${index}`} project={project} />
+    ))}
+  </Container>
+)
