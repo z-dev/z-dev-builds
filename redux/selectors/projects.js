@@ -7,6 +7,7 @@ export default createSelector(
   projectsState => {
     const lowerCaseProjectQuery = _.toLower(projectsState.projectQuery)
 
+    // We would normally do this server side, but this allows us to give a selector example
     const filteredProjects = _.filter(projectsState.projects, project => {
       const lowerCaseProjectName = _.toLower(project.name)
       return _.includes(lowerCaseProjectName, lowerCaseProjectQuery)
