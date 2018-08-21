@@ -10,7 +10,7 @@ const filterProjectsByQuery = (projects, projectQuery) => {
   })
 }
 
-const filterProjectsByShowFailed = projects => {
+const filterRecentlyFailedProjects = projects => {
   return _.filter(projects, project => {
     return !_.chain(project.branches)
       .filter(branch => branch.latestBuild.status === 'failed')
@@ -26,11 +26,11 @@ export default createSelector(
   (projectsState, filtersState) => {
     // We would normally do this server side, but this allows us to give a nice selector example
     const projectsFilteredByQuery = filterProjectsByQuery(projectsState.projects, filtersState.projectQuery)
-    const projectsFilteredByShowFailed = filterProjectsByShowFailed(projectsFilteredByQuery)
+    const recentlyFailedProjects = filterRecentlyFailedProjects(projectsFilteredByQuery)
 
     return {
       ...projectsState,
-      projects: filtersState.showFailed ? projectsFilteredByShowFailed : projectsFilteredByQuery,
+      projects: filtersState.showFailed ? recentlyFailedProjects : projectsFilteredByQuery,
     }
   },
 )
