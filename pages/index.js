@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import withRedux from 'redux/reduxWrapper'
 import Router from 'next/router'
 import { connectSocket } from 'common/socket'
+import setQueryParameters from 'common/utilities/setQueryParameters'
 import Projects from 'components/projects'
 import Header from 'components/header'
 import Footer from 'components/footer'
@@ -12,7 +13,6 @@ import styled from 'styled-components'
 import { projectsListener } from 'redux/actions/projects'
 import { updateProjectQuery, updateShowFailed } from 'redux/actions/filters'
 import projectsSelector from 'redux/selectors/projects'
-import filtersSelector from 'redux/selectors/filters'
 import '~/styles/global'
 
 const PageContainer = styled(Div)`
@@ -28,12 +28,22 @@ class Index extends Component {
     this.updateStateFromQueries()
   }
 
-  updateStateFromQueries() {
-    const queries = Router.router.query
+  componentDidUpdate(previousProps) {
+    const showFailed = this.props.filters.showFailed
+    const projectQuery = this.props.filters.projectQuery
+    const shouldUpdate = previousProps.filters.showFailed !== showFailed || previousProps.filters.projectQuery !== projectQuery
 
-    this.props.dispatch(updateShowFailed(queries.showFailed === 'true'))
-    if (queries.projectQuery) {
-      this.props.dispatch(updateProjectQuery(queries.projectQuery))
+    if (shouldUpdate) {
+      setQueryParameters({ showFailed: showFailed, projectQuery: projectQuery })
+    }
+  }
+
+  updateStateFromQueries() {
+    const query = Router.router.query
+
+    this.props.dispatch(updateShowFailed(query.showFailed === 'true'))
+    if (query.projectQuery) {
+      this.props.dispatch(updateProjectQuery(query.projectQuery))
     }
   }
 
@@ -56,4 +66,4 @@ class Index extends Component {
   }
 }
 
-export default withRedux(state => ({ projects: projectsSelector(state), filters: filtersSelector(state) }))(Index)
+export default withRedux(state => ({ projects: projectsSelector(state), filters: state.filters }))(Index)
