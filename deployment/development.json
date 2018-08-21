@@ -1,6 +1,6 @@
 {
-  "name": "z-dev-builds",
-  "alias": "z-dev-builds",
+  "name": "z-dev-builds-dev",
+  "alias": "z-dev-builds-dev",
   "env": {
     "DATABASE_NAME": "development"
   }

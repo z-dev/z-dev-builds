@@ -6,9 +6,10 @@ import Header from 'components/header'
 import Footer from 'components/footer'
 import Page from 'components/page'
 import Div from 'components/core/div'
-import ProjectSearch from 'components/projectSearch'
+import ProjectFilters from 'components/projectFilters'
 import styled from 'styled-components'
-import { projectsListener, updateProjectQuery } from 'redux/actions/projects'
+import { projectsListener } from 'redux/actions/projects'
+import { updateProjectQuery, updateShowFailed } from 'redux/actions/filters'
 import projectsSelector from 'redux/selectors/projects'
 import '~/styles/global'
 
@@ -29,7 +30,10 @@ class Index extends Component {
       <Page>
         <PageContainer>
           <Header />
-          <ProjectSearch updateProjectQuery={projectQuery => this.props.dispatch(updateProjectQuery(projectQuery))} />
+          <ProjectFilters
+            updateShowFailed={showFailed => this.props.dispatch(updateShowFailed(showFailed))}
+            updateProjectQuery={projectQuery => this.props.dispatch(updateProjectQuery(projectQuery))}
+          />
           <Projects projects={this.props.projects.projects} />
           <Footer />
         </PageContainer>
