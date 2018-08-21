@@ -31,9 +31,9 @@ class Index extends Component {
   componentDidUpdate(previousProps) {
     const showFailed = this.props.filters.showFailed
     const projectQuery = this.props.filters.projectQuery
-    const shouldUpdate = previousProps.filters.showFailed !== showFailed || previousProps.filters.projectQuery !== projectQuery
+    const shouldSetQueryParameters = previousProps.filters.showFailed !== showFailed || previousProps.filters.projectQuery !== projectQuery
 
-    if (shouldUpdate) {
+    if (shouldSetQueryParameters) {
       setQueryParameters({ showFailed: showFailed, projectQuery: projectQuery })
     }
   }
