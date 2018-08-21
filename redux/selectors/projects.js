@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import { createSelector } from 'reselect-change-memoize'
 
-const failedStatus = 'failed'
+const FAILED_STATUS = 'failed'
 
 const filterProjectsByQuery = (projects, projectQuery) => {
   const lowerCaseProjectQuery = _.toLower(projectQuery)
@@ -28,11 +28,10 @@ export default createSelector(
   (projectsState, filtersState) => {
     // We would normally do this server side, but this allows us to give a nice selector example
     const projectsFilteredByQuery = filterProjectsByQuery(projectsState.projects, filtersState.projectQuery)
-    const failedProjects = filterProjectsByStatus(projectsFilteredByQuery, failedStatus)
 
     return {
       ...projectsState,
-      projects: filtersState.showFailed ? failedProjects : projectsFilteredByQuery,
+      projects: filtersState.showFailed ? filterProjectsByStatus(projectsFilteredByQuery, FAILED_STATUS) : projectsFilteredByQuery,
     }
   },
 )
