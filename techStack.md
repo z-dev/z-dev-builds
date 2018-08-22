@@ -18,7 +18,7 @@
 
 ## Code Quality
 - Senior developers review all our code using Pull Requests on [Github](https://github.com/) / [Bitbucket](https://bitbucket.org/) / [Gitlab](https://gitlab.com)
-- We [lint](https://eslint.org/) all our code to check for common mistakes
+- We [Lint](https://eslint.org/) all our code to check for common mistakes
 - We auto-format our code with [Prettier](https://prettier.io/docs/en/) for consistency
 - [Circle CI](https://circleci.com/) builds our code and checks the lint & prettier rules
 - All our codebases run the lint and auto-format our code before committing
