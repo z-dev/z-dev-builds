@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import withRedux from 'redux/reduxWrapper'
+import Router from 'next/router'
 import { connectSocket } from 'common/socket'
+import { setQueryParameters } from 'common/utilities/query'
 import Projects from 'components/projects'
 import Header from 'components/header'
 import Footer from 'components/footer'
@@ -23,6 +25,20 @@ class Index extends Component {
   componentDidMount() {
     connectSocket()
     this.props.dispatch(projectsListener())
+    this.updateStateFromQueries()
+  }
+
+  componentDidUpdate() {
+    setQueryParameters({ showFailed: this.props.filters.showFailed, projectQuery: this.props.filters.projectQuery })
+  }
+
+  updateStateFromQueries() {
+    const query = Router.router.query
+
+    this.props.dispatch(updateShowFailed(query.showFailed === 'true'))
+    if (query.projectQuery) {
+      this.props.dispatch(updateProjectQuery(query.projectQuery))
+    }
   }
 
   render() {
@@ -31,7 +47,9 @@ class Index extends Component {
         <PageContainer>
           <Header />
           <ProjectFilters
+            showFailed={this.props.filters.showFailed}
             updateShowFailed={showFailed => this.props.dispatch(updateShowFailed(showFailed))}
+            projectQuery={this.props.filters.projectQuery}
             updateProjectQuery={projectQuery => this.props.dispatch(updateProjectQuery(projectQuery))}
           />
           <Projects projects={this.props.projects.projects} />
@@ -42,4 +60,4 @@ class Index extends Component {
   }
 }
 
-export default withRedux(state => ({ projects: projectsSelector(state) }))(Index)
+export default withRedux(state => ({ projects: projectsSelector(state), filters: state.filters }))(Index)
