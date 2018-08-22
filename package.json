@@ -17,9 +17,9 @@
     "deploy:ci:prod": "yarn run deploy:prod",
     "postinstall": "yarn run check:node",
     "lint:watch": "nodemon --watch ./ --exec \"yarn run lint:without:prettier\"",
-    "lint": "eslint ./pages ./components ./styles ./redux ./server server.js",
+    "lint": "eslint ./common ./pages ./components ./styles ./redux ./server server.js",
     "lint:without:prettier": "yarn run lint:js -- --rule 'prettier/prettier: 0'",
-    "format:js": "prettier --single-quote --trailing-comma all --no-semi --print-width 180 --write \"{{components,pages,styles,redux,server}/**/*.js,server.js}\"",
+    "format:js": "prettier --single-quote --trailing-comma all --no-semi --print-width 180 --write \"{{components,pages,styles,redux,server,common}/**/*.js,server.js}\"",
     "precommit": "lint-staged && yarn run lint",
     "eslint-check": "eslint --print-config .eslintrc | eslint-config-prettier-check",
     "spellcheck": "yarn run spellcheck:interactive -- -r",
@@ -92,7 +92,7 @@
     "node": ">=8 <9"
   },
   "lint-staged": {
-    "{{components,pages,styles,redux,server}/**/*.js,server.js}": [
+    "{{components,pages,styles,redux,server,common}/**/*.js,server.js}": [
       "prettier --single-quote --trailing-comma all --no-semi --print-width 180 --write",
       "git add"
     ],
