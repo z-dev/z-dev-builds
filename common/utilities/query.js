@@ -13,9 +13,10 @@ export const setQueryParameters = query => {
     return
   }
 
+  const previousQuery = Router.router.query
   const formattedQuery = formatQuery(query)
 
-  if(_.isEqual(Router.router.query, formattedQuery)){
+  if(_.isEqual(previousQuery, formattedQuery)){
     return
   }
 
