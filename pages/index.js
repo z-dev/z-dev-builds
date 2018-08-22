@@ -28,8 +28,8 @@ class Index extends Component {
     this.updateStateFromQueries()
   }
 
-  componentDidUpdate(previousProps) {
-    setQueryParameters(previousProps.url.query, { showFailed: this.props.filters.showFailed, projectQuery: this.props.filters.projectQuery })
+  componentDidUpdate() {
+    setQueryParameters({ showFailed: this.props.filters.showFailed, projectQuery: this.props.filters.projectQuery })
   }
 
   updateStateFromQueries() {
