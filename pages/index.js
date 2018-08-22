@@ -17,6 +17,7 @@ import '~/styles/global'
 
 const PageContainer = styled(Div)`
   flex-direction: column;
+  flex: 1;
   font-family: ${props => props.theme.fontFamily};
   background-color: ${props => props.theme.colors.grey};
 `

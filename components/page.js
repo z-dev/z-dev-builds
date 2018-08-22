@@ -1,11 +1,16 @@
 import Head from 'next/head'
 import React from 'react'
-import { ThemeProvider } from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import theme from 'styles/theme'
+import Div from 'components/core/div'
+
+const PageContainer = styled(Div)`
+  flex: 1;
+`
 
 export default props => (
   <ThemeProvider theme={theme}>
-    <div>
+    <PageContainer>
       <Head>
         <title>Example website using Next.js v4.2.1</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,6 +18,6 @@ export default props => (
         <meta name="description" content="Example website using Next.js v4.2.1" />
       </Head>
       {props.children}
-    </div>
+    </PageContainer>
   </ThemeProvider>
 )

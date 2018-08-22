@@ -2,25 +2,31 @@ import React from 'react'
 import _ from 'lodash'
 import ResponsiveContainer from 'components/core/responsiveContainer'
 import Project from 'components/project'
+import Div from 'components/core/div'
 import styled from 'styled-components'
 
 const Container = styled(ResponsiveContainer)`
   #innerContainer {
     justify-content: center;
     flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-    padding-bottom: 90px;
+    align-items: stretch;
   }
+`
 
-  padding-top: 30px;
-  padding-bottom: 25px;
+const ProjectsContainer = styled(Div)`
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  overflow: auto;
+  flex: 1;
 `
 
 export default props => (
   <Container>
-    {_.map(props.projects, (project, index) => (
-      <Project key={`project-${index}`} project={project} />
-    ))}
+    <ProjectsContainer>
+      {_.map(props.projects, (project, index) => (
+        <Project key={`project-${index}`} project={project} />
+      ))}
+    </ProjectsContainer>
   </Container>
 )
