@@ -1,8 +1,8 @@
 import Router from 'next/router'
-import isBrowser from './isBrowser'
-import convertStringToBoolean from './convertStringToBoolean'
+import { isBrowser } from './isBrowser'
+import { convertStringToBoolean } from './convertStringToBoolean'
 
-export default query => {
+export const setQueryParameters = query => {
   if(!isBrowser()){
     return
   }

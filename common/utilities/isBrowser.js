@@ -1,1 +1,1 @@
-export default () => process.browser
+export const isBrowser = () => process.browser

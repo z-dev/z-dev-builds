@@ -1,3 +1,3 @@
-export default string => {
+export const convertStringToBoolean = string => {
   return string === 'true'
 }
