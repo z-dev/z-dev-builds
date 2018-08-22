@@ -7,9 +7,9 @@ export default server => {
   const socket = socketio(server)
   projectsNamespace = socket.of('/projects')
 
-  projectsNamespace.on('connection', async () => {
+  projectsNamespace.on('connection', async clientSocket => {
     console.log('Connection')
-    await emitProjects()
+    emitProjects(clientSocket)
   })
 }
 
