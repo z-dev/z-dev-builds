@@ -1,5 +1,6 @@
 import _ from 'lodash'
 import { createSelector } from 'reselect-change-memoize'
+import moment from 'moment'
 
 const FAILED_STATUS = 'failed'
 
@@ -21,13 +22,20 @@ const filterProjectsByStatus = (projects, status) => {
   })
 }
 
+const formatBranch = branch => ({ ...branch, latestBuild: { ...branch.latestBuild, time: moment(branch.latestBuild.time).format('HH:mm (DD/MM)') } })
+
+const formatProjects = projects => {
+  return _.map(projects, project => ({ ...project, branches: _.map(project.branches, branch => formatBranch(branch)) }))
+}
+
 export default createSelector(
   'projects',
   state => state.projects,
   state => state.filters,
   (projectsState, filtersState) => {
     // We would normally do this server side, but this allows us to give a nice selector example
-    const projectsFilteredByQuery = filterProjectsByQuery(projectsState.projects, filtersState.projectQuery)
+    const formattedProjects = formatProjects(projectsState.projects)
+    const projectsFilteredByQuery = filterProjectsByQuery(formattedProjects, filtersState.projectQuery)
 
     return {
       ...projectsState,
