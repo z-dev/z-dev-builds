@@ -7,7 +7,7 @@ import styled from 'styled-components'
 
 const Container = styled(ResponsiveContainer)`
   #innerContainer {
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     align-items: stretch;
   }
@@ -18,7 +18,6 @@ const ProjectsContainer = styled(Div)`
   justify-content: space-around;
   align-items: flex-start;
   overflow: auto;
-  flex: 1;
 `
 
 export default props => (
