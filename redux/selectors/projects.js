@@ -3,6 +3,7 @@ import { createSelector } from 'reselect-change-memoize'
 import moment from 'moment'
 
 const FAILED_STATUS = 'failed'
+const TIME_FORMAT = 'HH:mm (DD/MM)'
 
 const filterProjectsByQuery = (projects, projectQuery) => {
   const lowerCaseProjectQuery = _.toLower(projectQuery)
@@ -24,7 +25,7 @@ const filterProjectsByStatus = (projects, status) => {
 
 const formatBranch = branch => ({
   ...branch,
-  latestBuild: { ...branch.latestBuild, time: moment(branch.latestBuild.time).format('HH:mm (DD/MM)'), failed: branch.latestBuild.status === 'failed' },
+  latestBuild: { ...branch.latestBuild, time: moment(branch.latestBuild.time).format(TIME_FORMAT), failed: branch.latestBuild.status === 'failed' },
 })
 
 const formatProjects = projects => {
