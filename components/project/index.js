@@ -21,6 +21,8 @@ const ProjectContainer = styled(Div)`
   flex-direction: column;
   background-color: red;
   margin: 5px;
+  width: 360px;
+  height: 160px;
 `
 
 export default props => (
