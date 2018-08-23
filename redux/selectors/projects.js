@@ -22,7 +22,10 @@ const filterProjectsByStatus = (projects, status) => {
   })
 }
 
-const formatBranch = branch => ({ ...branch, latestBuild: { ...branch.latestBuild, time: moment(branch.latestBuild.time).format('HH:mm (DD/MM)') } })
+const formatBranch = branch => ({
+  ...branch,
+  latestBuild: { ...branch.latestBuild, time: moment(branch.latestBuild.time).format('HH:mm (DD/MM)'), failed: branch.latestBuild.status === 'failed' },
+})
 
 const formatProjects = projects => {
   return _.map(projects, project => ({ ...project, branches: _.map(project.branches, branch => formatBranch(branch)) }))
