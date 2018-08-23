@@ -23,13 +23,14 @@ const filterProjectsByStatus = (projects, status) => {
   })
 }
 
-const formatBranch = branch => ({
-  ...branch,
-  latestBuild: { ...branch.latestBuild, time: moment(branch.latestBuild.time).format(TIME_FORMAT), failed: branch.latestBuild.status === 'failed' },
-})
+const formatBranches = branches =>
+  _.map(branches, branch => ({
+    ...branch,
+    latestBuild: { ...branch.latestBuild, time: moment(branch.latestBuild.time).format(TIME_FORMAT), failed: branch.latestBuild.status === 'failed' },
+  }))
 
 const formatProjects = projects => {
-  return _.map(projects, project => ({ ...project, branches: _.map(project.branches, branch => formatBranch(branch)) }))
+  return _.map(projects, project => ({ ...project, branches: formatBranches(project.branches) }))
 }
 
 export default createSelector(
