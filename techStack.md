@@ -33,7 +33,7 @@
 
 We've built a [site](https://builds.z-dev.com) using React, Redux & Node to demonstrate how we build things
 
-The [source code] is available for you to browse
+The [source code](https://github.com/z-dev/z-dev-builds) is available for you to browse
 
 
 ## What else do you do?
