@@ -6,3 +6,7 @@ export const H1 = styled.h1`
   font-size: ${props => props.theme.fontSizes.large}px;
   font-weight: 300;
 `
+
+export const H2 = styled(H1)`
+  font-size: ${props => props.theme.fontSizes.medium}px;
+`

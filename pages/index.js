@@ -8,7 +8,6 @@ import Header from 'components/header'
 import Footer from 'components/footer'
 import Page from 'components/page'
 import Div from 'components/core/div'
-import ProjectFilters from 'components/projectFilters'
 import styled from 'styled-components'
 import { projectsListener } from 'redux/actions/projects'
 import { updateProjectQuery, updateShowFailed } from 'redux/actions/filters'
@@ -16,6 +15,8 @@ import projectsSelector from 'redux/selectors/projects'
 import '~/styles/global'
 
 const PageContainer = styled(Div)`
+  height: 100vh;
+  max-width: 100vw;
   flex-direction: column;
   flex: 1;
   font-family: ${props => props.theme.fontFamily};
@@ -47,13 +48,13 @@ class Index extends Component {
       <Page>
         <PageContainer>
           <Header />
-          <ProjectFilters
+          <Projects
+            projects={this.props.projects.projects}
             showFailed={this.props.filters.showFailed}
             updateShowFailed={showFailed => this.props.dispatch(updateShowFailed(showFailed))}
             projectQuery={this.props.filters.projectQuery}
             updateProjectQuery={projectQuery => this.props.dispatch(updateProjectQuery(projectQuery))}
           />
-          <Projects projects={this.props.projects.projects} />
           <Footer />
         </PageContainer>
       </Page>

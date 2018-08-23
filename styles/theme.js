@@ -32,7 +32,8 @@ export default {
     extraSmall: 5,
     small: 10,
     medium: 20,
-    extraLarge: 75,
+    large: 30,
+    extraLarge: 60,
   },
   fontSizes: {
     large: 20,
@@ -46,7 +47,7 @@ export default {
     height: 50,
   },
   project: {
-    width: 380,
+    width: 320,
     height: 160,
   },
 }

@@ -1,13 +1,21 @@
 import React from 'react'
 import Div from 'components/core/div'
-import Input from 'components/core/input'
+import SearchBox from 'components/core/searchBox'
 import Checkbox from 'components/core/checkbox'
-import Label from 'components/core/label'
+import styled from 'styled-components'
+
+const FiltersContainer = styled(Div)`
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 30px;
+  margin: 0 ${props => props.theme.spaces.large}px ${props => props.theme.spaces.medium}px ${props => props.theme.spaces.large}px;
+`
+
+const FailedCheckbox = styled(Checkbox)``
 
 export default props => (
-  <Div>
-    <Checkbox checked={props.showFailed} id="showFailed" onChange={event => props.updateShowFailed(event.target.checked)} />
-    <Label htmlFor="showFailed">Show recently failed projects</Label>
-    <Input value={props.projectQuery} onChange={event => props.updateProjectQuery(event.target.value)} />
-  </Div>
+  <FiltersContainer>
+    <FailedCheckbox checked={props.showFailed} onChange={props.updateShowFailed} id="showFailed" text={'show failed projects'} />
+    <SearchBox value={props.projectQuery} onChange={props.updateProjectQuery} />
+  </FiltersContainer>
 )
