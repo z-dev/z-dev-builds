@@ -12,8 +12,9 @@ const Checkbox = styled.input`
 `
 
 const CheckboxLabel = styled(Label)`
-  color: white;
+  color: ${props => props.theme.colors.white};
   margin-right: ${props => props.theme.spaces.small}px;
+  font-size: ${props => props.theme.fontSizes.small}px;
 `
 
 export default props => (
