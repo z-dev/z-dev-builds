@@ -20,6 +20,6 @@ const SearchBoxInput = styled(Input)`
 export default props => (
   <SearchBoxContainer>
     <SearchIcon src="/static/searchIcon.svg" alt="Search Icon" />
-    <SearchBoxInput placeholder={props.placeholder} value={props.value} onChange={event => props.onChange(event.target.value)} />
+    <SearchBoxInput {...props} onChange={event => props.onChange(event.target.value)} />
   </SearchBoxContainer>
 )

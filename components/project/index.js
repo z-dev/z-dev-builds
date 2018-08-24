@@ -2,8 +2,8 @@ import React from 'react'
 import _ from 'lodash'
 import styled from 'styled-components'
 import Div from 'components/core/div'
-import Branch from './branch'
-import headerBranch from './headerBranch'
+import theme from 'styles/theme'
+import BranchRow from './branchRow'
 
 const ProjectContainer = styled(Div)`
   color: white;
@@ -48,6 +48,17 @@ const BranchesContainer = styled(Div)`
   justify-content: space-between;
 `
 
+const BranchesHeader = () => <BranchRow color={theme.colors.green} values={['branch', 'time', 'status']} />
+
+const Branch = props => {
+  const statusColor = props.branch.latestBuild.failed ? theme.colors.red : null
+  const branch = props.branch
+  const latestBuild = branch.latestBuild
+  const values = [branch.name, latestBuild.time, latestBuild.status]
+
+  return <BranchRow values={values} cell3Color={statusColor} />
+}
+
 export default props => (
   <ProjectContainer>
     <ProjectHeaderContainer>
@@ -55,7 +66,7 @@ export default props => (
       <ProjectName>{props.project.name}</ProjectName>
     </ProjectHeaderContainer>
     <ProjectBodyContainer>
-      <Branch branch={headerBranch} header />
+      <BranchesHeader />
       <BranchesContainer>
         {_.map(props.project.branches, (branch, index) => (
           <Branch key={`branch-${index}`} branch={branch} />

@@ -1,7 +1,7 @@
 import React from 'react'
 import Div from 'components/core/div'
 import SearchBox from 'components/core/searchBox'
-import Checkbox from 'components/core/checkbox'
+import LabelledCheckbox from 'components/core/labelledCheckbox'
 import styled from 'styled-components'
 
 const FiltersContainer = styled(Div)`
@@ -11,11 +11,9 @@ const FiltersContainer = styled(Div)`
   margin: 0 ${props => props.theme.spaces.large}px ${props => props.theme.spaces.medium}px ${props => props.theme.spaces.large}px;
 `
 
-const FailedCheckbox = styled(Checkbox)``
-
 export default props => (
   <FiltersContainer>
-    <FailedCheckbox checked={props.showFailed} onChange={props.updateShowFailed} id="showFailed" text={'show failed projects'} />
+    <LabelledCheckbox checked={props.showFailed} onChange={props.updateShowFailed} id="showFailed" text={'show failed projects'} />
     <SearchBox placeholder="project name" value={props.projectQuery} onChange={props.updateProjectQuery} />
   </FiltersContainer>
 )
