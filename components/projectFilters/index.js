@@ -16,6 +16,6 @@ const FailedCheckbox = styled(Checkbox)``
 export default props => (
   <FiltersContainer>
     <FailedCheckbox checked={props.showFailed} onChange={props.updateShowFailed} id="showFailed" text={'show failed projects'} />
-    <SearchBox value={props.projectQuery} onChange={props.updateProjectQuery} />
+    <SearchBox placeholder="Project name" value={props.projectQuery} onChange={props.updateProjectQuery} />
   </FiltersContainer>
 )

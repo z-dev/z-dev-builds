@@ -19,7 +19,8 @@ const BranchNameContainer = styled(ValueContainer)`
 `
 
 const TimeContainer = styled(ValueContainer)`
-  width: 180px;
+  margin-left: ${props => props.theme.spaces.extraSmall}px;
+  width: 270px;
 `
 
 const StatusContainer = styled(ValueContainer)`

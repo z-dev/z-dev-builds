@@ -25,11 +25,13 @@ const ProjectsContainer = styled(Div)`
 const Title = styled(H1)`
   text-align: center;
   color: ${props => props.theme.colors.green};
+  padding: 0 ${props => props.theme.spaces.medium}px;
 `
 
 const Subtitle = styled(H2)`
   text-align: center;
   margin-bottom: ${props => props.theme.spaces.large}px;
+  padding: 0 ${props => props.theme.spaces.medium}px;
 `
 
 export default props => (
