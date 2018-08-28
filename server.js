@@ -5,7 +5,7 @@ import api from 'server/api'
 import intializeSocket, { socket } from 'server/socket'
 import { emitProjects } from 'server/socket/emitProjects'
 import { poll } from 'common/utilities/polling'
-import { syncProjects } from 'data/syncProjects'
+import { syncProjects } from 'server/data/syncProjects'
 
 const port = parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production'
