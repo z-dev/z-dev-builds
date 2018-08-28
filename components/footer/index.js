@@ -1,6 +1,6 @@
 import React from 'react'
 import Div from 'components/core/div'
-import Link from 'components/core/link'
+import SourceCodeLink from 'components/core/sourceCodeLink'
 import styled from 'styled-components'
 
 const Footer = styled(Div)`
@@ -10,16 +10,10 @@ const Footer = styled(Div)`
   background-color: ${props => props.theme.colors.darkGrey};
 `
 
-const FooterLink = styled(Link)`
-  margin-left: ${props => props.theme.spaces.small}px;
-`
-
 export default () => {
   return (
     <Footer>
-      <FooterLink href="https://github.com/z-dev/z-dev-builds" rel="noopener noreferrer" target="_blank">
-        Source Code
-      </FooterLink>
+      <SourceCodeLink />
     </Footer>
   )
 }
