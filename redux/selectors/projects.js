@@ -6,10 +6,15 @@ const FAILED_STATUS = 'failed'
 
 const filterProjectsByQuery = (projects, projectQuery) => {
   const lowerCaseProjectQuery = _.toLower(projectQuery)
+  const whitespaceSeperatedQuery = _.split(lowerCaseProjectQuery, ' ')
 
   return _.filter(projects, project => {
     const lowerCaseProjectName = _.toLower(project.name)
-    return _.includes(lowerCaseProjectName, lowerCaseProjectQuery)
+
+    return !_.chain(whitespaceSeperatedQuery)
+      .map(query => _.includes(lowerCaseProjectName, query))
+      .includes(false)
+      .value()
   })
 }
 
