@@ -8,6 +8,10 @@ import LoadingIndicator from 'components/core/loadingIndicator'
 import { H1, H2 } from 'components/core/headerText'
 import styled from 'styled-components'
 
+const NewContainer = styled(Div)`
+  flex-direction: column;
+`
+
 const Container = styled(ResponsiveContainer)`
   #innerContainer {
     justify-content: flex-start;
@@ -40,12 +44,12 @@ const Subtitle = styled(H2)`
 `
 
 export default props => (
-  <Container>
+  <NewContainer>
     <Title>{`ZDEV's Projects tested and deployed with CircleCI`}</Title>
     <Subtitle>Add a search query to find a project or check the box to see which builds failed</Subtitle>
     <ProjectFilters showFailed={props.showFailed} updateShowFailed={props.updateShowFailed} projectQuery={props.projectQuery} updateProjectQuery={props.updateProjectQuery} />
     <ProjectsContainer>
       {props.projectsLoading ? <ProjectsLoadingIndicator /> : _.map(props.projects, (project, index) => <Project key={`project-${index}`} project={project} />)}
     </ProjectsContainer>
-  </Container>
+  </NewContainer>
 )
