@@ -11,9 +11,9 @@ const filterProjectsByQuery = (projects, projectQuery) => {
   return _.filter(projects, project => {
     const lowerCaseProjectName = _.toLower(project.name)
 
-    return !_.chain(whitespaceSeperatedQuery)
+    return _.chain(whitespaceSeperatedQuery)
       .map(query => _.includes(lowerCaseProjectName, query))
-      .includes(false)
+      .every()
       .value()
   })
 }
