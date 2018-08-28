@@ -1,6 +1,6 @@
 # ZDEV Build - our example site built with React and Next
 
-We've built this site to show-off how we build things you can checkout the running site [here](https://builds.z-dev.com).
+We've built this site to show-off how we build things. You can checkout the running site [here](https://builds.z-dev.com).
 
 ## Tech Stack
 
@@ -16,17 +16,18 @@ We've built neat components for all the on-screen elements
 
 ### Application state inside Redux
 
-There's more than one way to Redux see how we write our [actions](redux/actions) and [reducers](redux/reducers).
+There's more than one way to do Redux. See how we write our [actions](redux/actions) and [reducers](redux/reducers).
 
 We've used Redux's [Reselect](https://github.com/reduxjs/reselect) to calculate a derived state of [which projects to show](redux/selectors/projects.js) based on the `projects` and the `filters` the user has selected. These kind of derived state calculations are amazingly powerful.
 
 ### How fast the site renders
 
-[Next](https://nextjs.org/) server side rendering is very fast. That first page load is really fast - even on mobile.
+[Next](https://nextjs.org/) server side rendering is very fast. The site loads very fast - even on mobile.
 
 ### Automatic code checks
 
-All the code is linted and autoformatted when you commit code and once pushed (by the build)
+Our build process lints and autoformats when you commit and push code.
+
 
 ### Automatic code deployments
 
@@ -35,3 +36,7 @@ The code is automatically deployed when you push code to `master` and `productio
 ### Real time builds using Socket
 
 We've written a small amount of code in `node.js` to send the projects to the front end in real-time using [Socket.io](https://socket.io/)
+
+## Questions?
+
+Perhaps
