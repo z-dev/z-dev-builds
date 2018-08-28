@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 const Row = styled(Div)`
   justify-content: space-between;
+  margin-top: ${props => props.theme.spaces.extraSmall}px;
 `
 
 const ValueContainer = styled(Div)`

@@ -46,7 +46,7 @@ const ProjectName = styled.p`
 const BranchesContainer = styled(Div)`
   flex-direction: column;
   flex: 1;
-  justify-content: space-between;
+  justify-content: flex-start;
 `
 
 const BranchesHeader = () => <BranchRow color={theme.colors.green} values={['branch', 'time', 'status']} />
