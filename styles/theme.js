@@ -18,7 +18,7 @@ export default {
   smGridMargin: 20,
   mdGridMargin: 30,
   lgGridMargin: lgGridMargin,
-  fontFamily: 'Avenir Next, sans-serif',
+  fontFamily: 'AvenirNextLTW01RegularRegular, sans-serif',
   borderRadius: 10,
   colors: {
     darkGrey: '#2D2E33',
