@@ -12,10 +12,10 @@ export default props => (
   <ThemeProvider theme={theme}>
     <PageContainer>
       <Head>
-        <title>Example website using Next.js v4.2.1</title>
+        <title>ZDEV Builds</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link href="https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,800,700,900" rel="stylesheet" type="text/css" />
-        <meta name="description" content="Example website using Next.js v4.2.1" />
+        <meta name="description" content="ZDEV Builds" />
       </Head>
       {props.children}
     </PageContainer>

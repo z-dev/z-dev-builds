@@ -19,16 +19,26 @@ export default {
   mdGridMargin: 30,
   lgGridMargin: lgGridMargin,
   fontFamily: 'Avenir Next, sans-serif',
+  borderRadius: 10,
   colors: {
     darkGrey: '#2D2E33',
     grey: '#32393F',
     lightGrey: '#929CA5',
     green: '#54C18F',
     white: 'white',
+    red: 'red',
   },
   spaces: {
+    extraSmall: 5,
     small: 10,
-    extraLarge: 75,
+    medium: 20,
+    large: 30,
+    extraLarge: 60,
+  },
+  fontSizes: {
+    large: 20,
+    medium: 18,
+    small: 14,
   },
   header: {
     height: 100,
@@ -36,8 +46,8 @@ export default {
   footer: {
     height: 50,
   },
-  fontSizes: {
-    large: 20,
-    medium: 18,
+  project: {
+    width: 320,
+    height: 160,
   },
 }

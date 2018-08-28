@@ -26,7 +26,7 @@ const formatBranches = branches => {
   return _.chain(recentlyBuiltBranches)
     .map(branch => {
       const latestBuild = branch.recent_builds[0]
-      return { name: branch.name, latestBuild: { time: latestBuild.pushed_at, buildNumber: latestBuild.build_num, status: latestBuild.status } }
+      return { name: branch.name, latestBuild: { time: latestBuild.pushed_at, status: latestBuild.status } }
     })
     .value()
 }
