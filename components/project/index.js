@@ -3,7 +3,8 @@ import _ from 'lodash'
 import styled from 'styled-components'
 import Div from 'components/core/div'
 import theme from 'styles/theme'
-import BranchRow from './branchRow'
+import BranchRow from './branch/branchRow'
+import Branch from './branch'
 
 const ProjectContainer = styled(Div)`
   color: white;
@@ -49,15 +50,6 @@ const BranchesContainer = styled(Div)`
 `
 
 const BranchesHeader = () => <BranchRow color={theme.colors.green} values={['branch', 'time', 'status']} />
-
-const Branch = props => {
-  const statusColor = props.branch.latestBuild.failed ? theme.colors.red : null
-  const branch = props.branch
-  const latestBuild = branch.latestBuild
-  const values = [branch.name, latestBuild.time, latestBuild.status]
-
-  return <BranchRow values={values} cell3Color={statusColor} />
-}
 
 export default props => (
   <ProjectContainer>
