@@ -20,7 +20,7 @@
     ["babel-plugin-root-import", [{
       "rootPathPrefix": "~",
       "rootPathSuffix": "."
-    }]],
+    }]]
   ],
   "presets": [
     "next/babel"

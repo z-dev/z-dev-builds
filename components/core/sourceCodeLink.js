@@ -1,14 +1,13 @@
 import React from 'react'
 import Link from 'components/core/link'
-import Div from 'components/core/div'
+import Text from 'components/core/text'
 import styled from 'styled-components'
 
 const SourceCodeLink = styled(Link)`
   margin-left: ${props => props.theme.spaces.small}px;
-`
-
-const SourceCodeLinkContainer = styled(Div)`
+  flex-direction: row;
   align-items: center;
+  display: flex;
 `
 
 const GithubLogo = styled.img`
@@ -16,11 +15,13 @@ const GithubLogo = styled.img`
   height: 50px;
 `
 
+const SourceCodeText = styled(Text)`
+  margin-left: ${props => props.theme.spaces.small}px;
+`
+
 export default () => (
-  <SourceCodeLinkContainer>
-    <GithubLogo src="/static/githubLogo.svg" />
-    <SourceCodeLink href="https://github.com/z-dev/z-dev-builds" rel="noopener noreferrer" target="_blank">
-      Source Code
-    </SourceCodeLink>
-  </SourceCodeLinkContainer>
+  <SourceCodeLink href="https://github.com/z-dev/z-dev-builds" rel="noopener noreferrer" target="_blank">
+    <GithubLogo src="/static/githubLogo.svg" alt="Github Logo" />
+    <SourceCodeText>Source Code</SourceCodeText>
+  </SourceCodeLink>
 )
