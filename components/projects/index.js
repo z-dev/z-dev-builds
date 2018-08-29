@@ -1,6 +1,5 @@
 import React from 'react'
 import _ from 'lodash'
-import ResponsiveContainer from 'components/core/responsiveContainer'
 import ProjectFilters from 'components/projectFilters'
 import Project from 'components/project'
 import Div from 'components/core/div'
@@ -8,12 +7,9 @@ import LoadingIndicator from 'components/core/loadingIndicator'
 import { H1, H2 } from 'components/core/headerText'
 import styled from 'styled-components'
 
-const Container = styled(ResponsiveContainer)`
-  #innerContainer {
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: stretch;
-  }
+const Container = styled(Div)`
+  flex-direction: column;
+  flex: 1;
 `
 
 const ProjectsContainer = styled(Div)`
@@ -21,6 +17,7 @@ const ProjectsContainer = styled(Div)`
   justify-content: space-around;
   align-items: flex-start;
   overflow: auto;
+  padding: 0 ${props => props.theme.spaces.large}px;
 `
 
 const ProjectsLoadingIndicator = styled(LoadingIndicator)`

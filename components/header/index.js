@@ -5,7 +5,7 @@ import { H1 } from 'components/core/headerText'
 import styled from 'styled-components'
 
 const HeaderContainer = styled(Div)`
-  height: ${props => props.theme.header.height}px;
+  min-height: ${props => props.theme.header.height}px;
   padding: 0 ${props => props.theme.spaces.large}px;
   align-items: center;
   justify-content: space-between;
@@ -13,6 +13,16 @@ const HeaderContainer = styled(Div)`
 
 const HeaderTitle = styled(H1)`
   margin-left: ${props => props.theme.spaces.small}px;
+
+  @media (max-width: ${props => props.theme.screenSizes.small}px) {
+    display: none;
+  }
+`
+
+const ResponsiveSourceCodeLink = styled(SourceCodeLink)`
+  @media (max-width: ${props => props.theme.screenSizes.small}px) {
+    display: none;
+  }
 `
 
 export default () => {
@@ -22,7 +32,7 @@ export default () => {
         <img src="/static/logo.svg" alt="ZDEV Logo" />
         <HeaderTitle>Continuous Integration</HeaderTitle>
       </Div>
-      <SourceCodeLink />
+      <ResponsiveSourceCodeLink />
     </HeaderContainer>
   )
 }
