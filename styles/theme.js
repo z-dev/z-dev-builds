@@ -26,14 +26,4 @@ export default {
     medium: 18,
     small: 14,
   },
-  header: {
-    height: 100,
-  },
-  footer: {
-    height: 50,
-  },
-  project: {
-    width: 320,
-    height: 160,
-  },
 }

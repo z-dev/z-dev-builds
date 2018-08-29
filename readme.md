@@ -1,4 +1,4 @@
-# ZDEV Build - our example site built with React and Next
+# ZDEV Builds - our example site built with React and Next
 
 We've built this site to show-off how we build things. You can checkout the running site [here](https://builds.z-dev.com).
 

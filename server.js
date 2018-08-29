@@ -2,7 +2,7 @@ import express from 'express'
 import http from 'http'
 import next from 'next'
 import api from 'server/api'
-import intializeSocket, { socket } from 'server/socket'
+import intializeSocket from 'server/socket'
 import { emitProjects } from 'server/socket/emitProjects'
 import { poll } from 'common/utilities/polling'
 import { syncProjects } from 'server/data/syncProjects'
@@ -14,7 +14,7 @@ const expressApp = express()
 const server = http.Server(expressApp)
 
 nextApp.prepare().then(() => {
-  intializeSocket(server)
+  const socket = intializeSocket(server)
   api(expressApp, nextApp)
 
   server.listen(port, () => {
@@ -23,5 +23,5 @@ nextApp.prepare().then(() => {
 
   syncProjects()
 
-  poll(() => emitProjects(socket()), 10000)
+  poll(() => emitProjects(socket), 10000)
 })

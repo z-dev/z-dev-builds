@@ -18,7 +18,7 @@ export const setQueryParameters = query => {
   const formattedQuery = formatQuery(query)
 
   if (!_.isEqual(previousQuery, formattedQuery)) {
-    Router.push({
+    Router.replace({
       pathname: '/',
       query: formattedQuery,
     })

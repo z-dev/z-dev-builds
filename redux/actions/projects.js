@@ -1,9 +1,7 @@
 import socket from 'common/socket'
 
-const updateProjects = projects => dispatch => {
-  dispatch({ type: 'projects/UPDATE_PROJECTS', payload: projects })
-}
+const updateProjects = projects => ({ type: 'projects/UPDATE_PROJECTS', payload: projects })
 
-export const projectsListener = () => dispatch => {
+export const syncProjects = () => dispatch => {
   socket().on('projects', projects => dispatch(updateProjects(projects)))
 }
