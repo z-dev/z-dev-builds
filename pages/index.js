@@ -49,6 +49,7 @@ class Index extends Component {
         <PageContainer>
           <Header />
           <Projects
+            projectsLoading={this.props.projects.projectsLoading}
             projects={this.props.projects.projects}
             showFailed={this.props.filters.showFailed}
             updateShowFailed={showFailed => this.props.dispatch(updateShowFailed(showFailed))}

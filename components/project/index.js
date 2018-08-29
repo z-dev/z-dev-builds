@@ -14,7 +14,11 @@ const ProjectContainer = styled(Div)`
   font-size: ${props => props.theme.fontSizes.small}px;
   padding: ${props => props.theme.spaces.small}px ${props => props.theme.spaces.medium}px;
   margin: ${props => props.theme.spaces.large}px ${props => props.theme.spaces.small}px;
-  width: ${props => props.theme.project.width}px;
+
+  @media (min-width: ${props => props.theme.screenSizes.extraSmall}px) {
+    width: ${props => props.theme.project.width}px;
+  }
+
   height: ${props => props.theme.project.height}px;
 `
 
@@ -46,7 +50,7 @@ const ProjectName = styled.p`
 const BranchesContainer = styled(Div)`
   flex-direction: column;
   flex: 1;
-  justify-content: space-between;
+  justify-content: flex-start;
 `
 
 const BranchesHeader = () => <BranchRow color={theme.colors.green} values={['branch', 'time', 'status']} />

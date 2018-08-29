@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 const Row = styled(Div)`
   justify-content: space-between;
+  margin-top: ${props => props.theme.spaces.extraSmall}px;
 `
 
 const ValueContainer = styled(Div)`
@@ -16,15 +17,27 @@ const Cell1 = styled(ValueContainer)`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  @media (max-width: ${props => props.theme.screenSizes.extraSmall}px) {
+    width: 100px;
+  }
 `
 
 const Cell2 = styled(ValueContainer)`
   margin-left: ${props => props.theme.spaces.extraSmall}px;
   width: 270px;
+
+  @media (max-width: ${props => props.theme.screenSizes.extraSmall}px) {
+    width: 100px;
+  }
 `
 
 const Cell3 = styled(ValueContainer)`
   width: 100px;
+
+  @media (max-width: ${props => props.theme.screenSizes.extraSmall}px) {
+    width: 50px;
+  }
 `
 export default props => {
   return (
