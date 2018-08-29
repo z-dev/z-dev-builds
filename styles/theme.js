@@ -1,6 +1,10 @@
 export default {
   fontFamily: 'AvenirNextLTW01RegularRegular, sans-serif',
   borderRadius: 10,
+  screenSizes: {
+    small: 560,
+    extraSmall: 320,
+  },
   colors: {
     darkGrey: '#2D2E33',
     grey: '#32393F',

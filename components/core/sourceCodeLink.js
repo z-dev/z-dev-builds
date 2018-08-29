@@ -19,8 +19,8 @@ const SourceCodeText = styled(Text)`
   margin-left: ${props => props.theme.spaces.small}px;
 `
 
-export default () => (
-  <SourceCodeLink href="https://github.com/z-dev/z-dev-builds" rel="noopener noreferrer" target="_blank">
+export default props => (
+  <SourceCodeLink className={props.className} href="https://github.com/z-dev/z-dev-builds" rel="noopener noreferrer" target="_blank">
     <GithubLogo src="/static/githubLogo.svg" alt="Github Logo" />
     <SourceCodeText>Source Code</SourceCodeText>
   </SourceCodeLink>
