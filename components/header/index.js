@@ -5,7 +5,7 @@ import { H1 } from 'components/core/headerText'
 import styled from 'styled-components'
 
 const HeaderContainer = styled(Div)`
-  height: ${props => props.theme.header.height}px;
+  min-height: ${props => props.theme.header.height}px;
   padding: 0 ${props => props.theme.spaces.large}px;
   align-items: center;
   justify-content: space-between;
