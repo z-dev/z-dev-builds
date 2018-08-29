@@ -32,7 +32,7 @@
 ## Checkout a sample codebase
 
 - We've built an example site to showcase how we write code
-- Checkout the running [site](https://builds.z-dev.com) and the [code](/)
+- Checkout the running [site](https://builds.z-dev.com) and the [code](https://github.com/z-dev/z-dev-builds/)
 
 ## What else do you do?
 
