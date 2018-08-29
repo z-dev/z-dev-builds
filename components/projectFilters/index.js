@@ -8,7 +8,12 @@ const FiltersContainer = styled(Div)`
   justify-content: flex-start;
   align-items: center;
   min-height: 30px;
-  margin: 0 ${props => props.theme.spaces.large}px ${props => props.theme.spaces.medium}px ${props => props.theme.spaces.large}px;
+  margin: 0 ${props => props.theme.spaces.extraExtraLarge}px ${props => props.theme.spaces.medium}px ${props => props.theme.spaces.extraExtraLarge}px;
+
+  @media (max-width: ${props => props.theme.screenSizes.small}px) {
+    margin: 0;
+    justify-content: center;
+  }
 `
 
 export default props => (

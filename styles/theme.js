@@ -19,6 +19,7 @@ export default {
     medium: 20,
     large: 30,
     extraLarge: 60,
+    extraExtraLarge: 80,
   },
   fontSizes: {
     large: 20,
