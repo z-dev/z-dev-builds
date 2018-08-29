@@ -39,7 +39,7 @@ const Subtitle = styled(H2)`
 export default props => (
   <Container>
     <Title>Here are all our recent continuous integration builds</Title>
-    <Subtitle>{`We've built this example website so you can see how we build things`}</Subtitle>
+    <Subtitle>{`We've built this example website so you can see how we write code`}</Subtitle>
     <ProjectFilters showFailed={props.showFailed} updateShowFailed={props.updateShowFailed} projectQuery={props.projectQuery} updateProjectQuery={props.updateProjectQuery} />
     <ProjectsContainer>
       {props.projectsLoading ? <ProjectsLoadingIndicator /> : _.map(props.projects, (project, index) => <Project key={`project-${index}`} project={project} />)}
