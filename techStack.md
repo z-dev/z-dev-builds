@@ -29,6 +29,11 @@
 - We deploy websites using [Firebase](https://firebase.google.com/) website deployments
 - Server code / [Docker](https://www.docker.com/) containers are deployed using [Now](https://zeit.co/now) and [Heroku](https://www.heroku.com/)
 
+## Checkout a sample codebase
+
+- We've built an example site to showcase how we write code
+- Checkout the running [site](builds.z-dev.com) and the [code](/readme.md)
+
 ## What else do you do?
 
 - [Express](https://expressjs.com/) for HTTP servers
