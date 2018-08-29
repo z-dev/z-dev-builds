@@ -1,26 +1,13 @@
 import _ from 'lodash'
+import { matches } from 'common/utilities/strings'
 import { createSelector } from 'reselect-change-memoize'
 import moment from 'moment'
 
 const FAILED_STATUS = 'failed'
 
-const filterProjectsByQuery = (projects, projectQuery) => {
-  const lowerCaseProjectQuery = _.toLower(projectQuery)
-  const whitespaceSeperatedQuery = _.split(lowerCaseProjectQuery, ' ')
-
-  return _.filter(projects, project => {
-    const lowerCaseProjectName = _.toLower(project.name)
-
-    return _.every(whitespaceSeperatedQuery, query => _.includes(lowerCaseProjectName, query))
-  })
-}
-
 const filterProjectsByStatus = (projects, status) => {
   return _.filter(projects, project => {
-    return !_.chain(project.branches)
-      .filter(branch => branch.latestBuild.status === status)
-      .isEmpty()
-      .value()
+    return _.some(project.branches, branch => branch.latestBuild.status === status)
   })
 }
 
@@ -56,7 +43,7 @@ export default createSelector(
   (projectsState, filtersState) => {
     // We would normally do this server side, but this allows us to give a nice selector example
     const formattedProjects = formatProjects(projectsState.projects)
-    const projectsFilteredByQuery = filterProjectsByQuery(formattedProjects, filtersState.projectQuery)
+    const projectsFilteredByQuery = _.filter(formattedProjects, project => matches(filtersState.projectQuery, project.name))
 
     return {
       ...projectsState,

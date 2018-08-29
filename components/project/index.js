@@ -16,10 +16,10 @@ const ProjectContainer = styled(Div)`
   margin: ${props => props.theme.spaces.large}px ${props => props.theme.spaces.small}px;
 
   @media (min-width: ${props => props.theme.screenSizes.extraSmall}px) {
-    width: ${props => props.theme.project.width}px;
+    width: 320px;
   }
 
-  height: ${props => props.theme.project.height}px;
+  height: 160px;
 `
 
 const ProjectHeaderContainer = styled(Div)`

@@ -4,7 +4,7 @@ import SourceCodeLink from 'components/core/sourceCodeLink'
 import styled from 'styled-components'
 
 const Footer = styled(Div)`
-  min-height: ${props => props.theme.footer.height}px;
+  min-height: 50px;
   padding: 0 ${props => props.theme.spaces.large}px;
   align-items: center;
   background-color: ${props => props.theme.colors.darkGrey};

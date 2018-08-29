@@ -9,7 +9,7 @@ import Footer from 'components/footer'
 import Page from 'components/page'
 import Div from 'components/core/div'
 import styled from 'styled-components'
-import { projectsListener } from 'redux/actions/projects'
+import { syncProjects } from 'redux/actions/projects'
 import { updateProjectQuery, updateShowFailed } from 'redux/actions/filters'
 import projectsSelector from 'redux/selectors/projects'
 import '~/styles/global'
@@ -26,7 +26,7 @@ const PageContainer = styled(Div)`
 class Index extends Component {
   componentDidMount() {
     connectSocket()
-    this.props.dispatch(projectsListener())
+    this.props.dispatch(syncProjects())
     this.updateStateFromQueries()
   }
 
