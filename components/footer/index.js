@@ -8,6 +8,8 @@ const Footer = styled(Div)`
   padding: 0 ${props => props.theme.spaces.large}px;
   align-items: center;
   background-color: ${props => props.theme.colors.darkGrey};
+  position: sticky;
+  bottom: 0;
 `
 
 export default () => {

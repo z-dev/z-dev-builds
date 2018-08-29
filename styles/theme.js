@@ -1,5 +1,5 @@
 export default {
-  fontFamily: 'AvenirNextLTW01RegularRegular, sans-serif',
+  fontFamily: 'Avenir Next, sans-serif',
   borderRadius: 10,
   screenSizes: {
     small: 560,
