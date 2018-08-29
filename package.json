@@ -90,7 +90,7 @@
     "stylelint-processor-styled-components": "^0.1.2"
   },
   "engines": {
-    "node": ">=9 <11"
+    "node": "10"
   },
   "lint-staged": {
     "{{components,pages,styles,redux,server,common,data}/**/*.js,server.js}": [

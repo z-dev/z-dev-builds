@@ -11,7 +11,7 @@ const FiltersContainer = styled(Div)`
   margin: 0 ${props => props.theme.spaces.extraExtraLarge}px ${props => props.theme.spaces.medium}px ${props => props.theme.spaces.extraExtraLarge}px;
 
   @media (max-width: ${props => props.theme.screenSizes.small}px) {
-    margin: 0;
+    margin: 0 0 ${props => props.theme.spaces.medium}px 0;
     justify-content: center;
   }
 `
