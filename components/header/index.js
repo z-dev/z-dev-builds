@@ -30,7 +30,7 @@ export default () => {
     <HeaderContainer>
       <Div>
         <img src="/static/logo.svg" alt="ZDEV Logo" />
-        <HeaderTitle>Continuous Integration</HeaderTitle>
+        <HeaderTitle>Builds</HeaderTitle>
       </Div>
       <ResponsiveSourceCodeLink />
     </HeaderContainer>
