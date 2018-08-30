@@ -39,4 +39,4 @@ We've written a small amount of code in `node.js` to send the projects to the fr
 
 ## Questions?
 
-Perhaps
+Drop us a mail to hello@z-dev.com - we'll be happy to field any questions or even show you through the code :smile:
