@@ -15,7 +15,7 @@ import projectsSelector from 'redux/selectors/projects'
 import '~/styles/global'
 
 const PageContainer = styled(Div)`
-  height: 100vh;
+  min-height: 100vh;
   max-width: 100vw;
   flex-direction: column;
   flex: 1;
