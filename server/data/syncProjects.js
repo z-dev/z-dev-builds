@@ -25,9 +25,14 @@ const formatBranches = branches => {
 
   return _.chain(recentlyBuiltBranches)
     .map(branch => {
-      const latestBuild = branch.recent_builds[0]
+      console.log(branch)
+      const latestBuild = _.get(branch, 'recent_builds[0]')
+      if (!latestBuild) {
+        return null
+      }
       return { name: branch.name, latestBuild: { time: latestBuild.pushed_at, status: latestBuild.status } }
     })
+    .compact()
     .value()
 }
 
