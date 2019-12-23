@@ -1,4 +1,3 @@
-const sharp = require('sharp')
 const recursiveReadSync = require('recursive-readdir-sync')
 const path = require('path')
 const fs = require('fs')
@@ -26,21 +25,6 @@ const createFolderIfDoesntExist = (folder) => {
   }
 }
 
-const resizeImage = (image, options) => {
-  console.log(`Resizing Image ${image} into static folder`)
-  const width = options.width || 1000
-  const height = options.height || 1000
-  const staticPathForFile = getStaticPathForFile(image)
-  createFolderIfDoesntExist(path.dirname(staticPathForFile))
-  sharp(image)
-    .resize(width, height)
-    .max()
-    .toFile(staticPathForFile, function(error, info) {
-      if (error) {
-        console.error(error)
-      }
-    })
-}
 
 const copySvgsToStatic = () => {
   const svgFiles = recursiveReadSync('assets').filter(filename => filename.endsWith('.svg'))
@@ -58,10 +42,6 @@ const copySvgsToStatic = () => {
     })
   })
 }
-
-
-resizeImage('assets/images/animals/kitten.jpg', {width: 600, height: 600})
-
 
 
 copySvgsToStatic()

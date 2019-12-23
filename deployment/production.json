@@ -2,6 +2,7 @@
   "name": "z-dev-builds",
   "alias": "builds.z-dev.com",
   "env": {
+    "CIRCLE_TOKEN": "@circle-token",
     "DATABASE_NAME": "production"
   }
 }
