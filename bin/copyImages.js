@@ -44,8 +44,4 @@ const copySvgsToStatic = () => {
 }
 
 
-// resizeImage('assets/images/animals/kitten.jpg', {width: 600, height: 600})
-
-
-
 copySvgsToStatic()
