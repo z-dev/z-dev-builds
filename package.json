@@ -83,7 +83,7 @@
     "now": "^16.7.0",
     "prettier": "^1.2.2",
     "recursive-readdir-sync": "^1.0.6",
-    "sharp": "^0.20.5",
+    "sharp": "^0.30.5",
     "stylefmt": "^5.3.2",
     "stylelint": "^7.10.1",
     "stylelint-config-standard": "^16.0.0",
